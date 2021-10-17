@@ -1,6 +1,5 @@
 from rental import Rental
-from movie import Movie
-import logging
+from movie import Movie, PriceCode
 
 
 class Customer:
@@ -12,11 +11,12 @@ class Customer:
     """
 
     def __init__(self, name: str):
-        """ Initialize a new customer."""
+        """Initialize a new customer."""
         self.name = name
         self.rentals = []
 
     def add_rental(self, rental: Rental):
+        """Add rental to rentals list."""
         if rental not in self.rentals:
             self.rentals.append(rental)
 
@@ -39,8 +39,8 @@ class Customer:
         fmt = "{:32s}   {:4d} {:6.2f}\n"
 
         for rental in self.rentals:
-            amount = self.get_price(rental)
-            frequent_renter_points = self.get_rental_point(frequent_renter_points, rental)
+            amount = rental.get_price()
+            frequent_renter_points = rental.get_rental_point()
             #  add detail line to statement
             statement += fmt.format(rental.get_movie().get_title(), rental.get_days_rented(), amount)
             # and accumulate activity
@@ -56,8 +56,8 @@ class Customer:
 if __name__ == "__main__":
     customer = Customer("Edward Snowden")
     print(customer.statement())
-    movie = Movie("Hacker Noon", Movie.REGULAR)
+    movie = Movie("Hacker Noon", PriceCode.regular)
     customer.add_rental(Rental(movie, 2))
-    movie = Movie("CitizenFour", Movie.NEW_RELEASE)
+    movie = Movie("CitizenFour", PriceCode.new_release)
     customer.add_rental(Rental(movie, 3))
     print(customer.statement())
