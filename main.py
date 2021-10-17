@@ -1,5 +1,7 @@
-# Demonstrate the movie rental code.
-# Create a customer with some movies and print a statement.
+"""Demonstrate the movie rental code.
+
+Create a customer with some movies and print a statement.
+"""
 
 from movie import Movie, PriceCode
 from rental import Rental
@@ -7,6 +9,7 @@ from customer import Customer
 
 
 def make_movies():
+    """Name and price of a movie."""
     movies = [
         Movie("The Irishman", PriceCode.new_release),
         Movie("CitizenFour", PriceCode.regular),

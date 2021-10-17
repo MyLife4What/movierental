@@ -1,9 +1,9 @@
-from movie import Movie, PriceCode
+"""Movie renting."""
 
 
 class Rental:
-    """
-    A rental of a movie by customer.
+    """A rental of a movie by customer.
+
     From Fowler's refactoring example.
 
     A realistic Rental would have fields for the dates
@@ -22,20 +22,16 @@ class Rental:
         self.days_rented = days_rented
 
     def get_movie(self):
+        """Get movie."""
         return self.movie
 
     def get_days_rented(self):
-        """Get number of day that customer rent the movie."""
+        """Get number of day that customer that rent the movie."""
         return self.days_rented
 
     def get_rental_points(self):
         """Award renter points."""
-        frequent_renter_points = 0
-        if self.get_movie().get_price_code() == PriceCode.new_release:
-            frequent_renter_points += self.get_days_rented()
-        else:
-            frequent_renter_points += 1
-        return frequent_renter_points
+        return self.movie.get_price_code().get_renter_point(self.days_rented)
 
     def get_price(self):
         """Compute rental change."""
