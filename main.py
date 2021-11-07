@@ -3,19 +3,20 @@
 Create a customer with some movies and print a statement.
 """
 
-from movie import Movie, PriceCode
+from movie import Movie, MovieCatalog
 from rental import Rental
 from customer import Customer
 
 
 def make_movies():
-    """Name and price of a movie."""
+    """Get movie from the catalog."""
+    catalog = MovieCatalog()
     movies = [
-        Movie("The Irishman", PriceCode.new_release),
-        Movie("CitizenFour", PriceCode.regular),
-        Movie("Frozen", PriceCode.children),
-        Movie("El Camino", PriceCode.new_release),
-        Movie("Particle Fever", PriceCode.regular)
+        catalog.get_movie("Steve Jobs: The Man in the Machine"),
+        catalog.get_movie("A Tenant"),
+        catalog.get_movie("Deadpool"),
+        catalog.get_movie("The Martian"),
+        catalog.get_movie("Fifty Shades of Grey")
     ]
     return movies
 

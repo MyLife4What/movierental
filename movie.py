@@ -6,11 +6,12 @@ import csv
 class Movie:
     """A movie available for rent."""
 
-    def __init__(self, title: str, year: int, genre: List[str]):
+    def __init__(self, title: str, year: int, genre: List[str], price_code):
         """Initialize a new movie."""
         self._title = title
         self._year = year
         self._genre = genre
+        self._price_code = price_code
 
     def get_title(self):
         """Get the title."""
@@ -23,6 +24,14 @@ class Movie:
     def get_genre(self):
         """Get genre for a movie."""
         return self._genre
+
+    def is_genre(self, genre: str):
+        """check if the genre is the same"""
+        return genre in self._genre
+
+    def get_price_code(self):
+        """Get the price code."""
+        return self._price_code
 
     def __str__(self):
         """Return title."""
