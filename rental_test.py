@@ -1,7 +1,8 @@
 """Testcase for renting movie."""
 import unittest
 from rental import Rental
-from movie import Movie, PriceCode
+from movie import Movie
+from rental import PriceCode
 
 
 class RentalTest(unittest.TestCase):
