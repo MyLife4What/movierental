@@ -1,22 +1,28 @@
 """Title and price code calculator of movie."""
+from typing import List
 
 
 class Movie:
     """A movie available for rent."""
 
-    def __init__(self, title, price_code):
-        """Initialize a new movie."""
-        self.title = title
-        self.price_code = price_code
-
-    def get_price_code(self):
-        """Get the price code."""
-        return self.price_code
+    def __init__(self, title: str, year: int, genre: List[str]):
+        # Initialize a new movie.
+        self._title = title
+        self._year = year
+        self._genre = genre
 
     def get_title(self):
         """Get the title."""
-        return self.title
+        return self._title
+
+    def get_year(self):
+        """Get the year the movie was released."""
+        return self._year
+
+    def get_genre(self):
+        """Get genre for a movie."""
+        return self._genre
 
     def __str__(self):
         """Return title."""
-        return self.title
+        return self._title
