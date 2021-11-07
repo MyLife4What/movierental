@@ -1,3 +1,4 @@
+"""Test case for a customer who rents movies."""
 import re
 import unittest
 from customer import Customer
@@ -6,7 +7,7 @@ from rental import Rental, PriceCode
 
 
 class CustomerTest(unittest.TestCase):
-    """ Tests of the Customer class."""
+    """Tests of the Customer class."""
 
     def setUp(self):
         """Test fixture contains: c = a customer movies = list of some movies."""
@@ -21,6 +22,7 @@ class CustomerTest(unittest.TestCase):
         pass
 
     def test_statement(self):
+        """A test statement."""
         stmt = self.c.statement()
         # visual testing
         print(stmt)

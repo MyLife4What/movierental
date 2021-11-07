@@ -41,6 +41,7 @@ class Rental:
         return self.get_movie().get_price_code().price(self.days_rented)
 
     def for_movie(self, movie: Movie):
+        """To check the year and the genre of the movie."""
         current_year = datetime.now().year
         if current_year == movie.get_year():
             return PriceCode.new_release

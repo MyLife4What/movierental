@@ -9,6 +9,7 @@ class RentalTest(unittest.TestCase):
     """Customer renting testcase."""
 
     def setUp(self):
+        """Test fixture contains: movies = list of some movies."""
         self.new_movie = Movie("A Tenant", 2020, ["Action", "Sci-Fi"], PriceCode.new_release)
         self.regular_movie = Movie("Deadpool", 2016, ["Action", "Adventure", "Comedy", "Sci-Fi"], PriceCode.regular)
         self.children_movie = Movie("Weathering With You", 2020, ["Animation", "Drama", "Children"], PriceCode.children)

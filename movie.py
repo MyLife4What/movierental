@@ -26,7 +26,7 @@ class Movie:
         return self._genre
 
     def is_genre(self, genre: str):
-        """check if the genre is the same"""
+        """To Check if the genre is the same."""
         return genre in self._genre
 
     def get_price_code(self):
@@ -54,5 +54,6 @@ class MovieCatalog:
             }
 
     def get_movie(self, title):
+        """Get movie title, year, and genre."""
         movie = self.movie_list[title]
         return Movie(title, movie["year"], movie["genre"])
